@@ -19,6 +19,18 @@ header {
    width: 100vw;
 }
 
+header div {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 5px
+}
+
+header img {
+   width: 32px;
+   height: 32px;  
+}
+
 header button {
    padding: 5px;
    border-radius: 10px;
@@ -36,12 +48,26 @@ main {
 .chatMessages {
    display: flex;
    flex-direction: column;
-   width: 100vw;
    height: 90%;
+   margin-left: 5px;
+   margin-right: 5px;
+   padding: 2px;
+}
+
+.chatMessages img {
+   width: 16px;
+   height: 16px;
 }
 
 .message {
-   border: 1px solid white;
+   display: flex;
+   align-items: center;
+   gap: 5px;
+}
+
+.message p {
+   display: flex;
+   gap: 3px
 }
 
 .chatInput {
@@ -62,6 +88,10 @@ main {
    width: 10%;
    padding: 5px;
    border: none;
+}
+
+.chatInput button:hover {
+   background-color: #ffff80;
 }
 
 footer {
