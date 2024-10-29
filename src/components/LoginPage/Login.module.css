@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   font-family: "Rethink Sans";
+}
+
+.body {
+   background-color: #000000;
+   color: #ffffff;
+}
+
+.header {
+   width: 100vw;
+   height: 5vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.main {
+   width: 100vw;
+   height: 95vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 5px;
+}
+
+.titleText {
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.form {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 5px;
+   width: 400px;
+}
+
+.form input {
+   width: 100%;
+   border-radius: 5px;
+   outline: none;
+   padding: 4px;
+}
+
+.textError {
+   color: #ff0000;
+}
+
+.form button {
+   width: 100px;
+   padding: 5px;
+   cursor: pointer;
+   border: none;
+   border-radius: 5px;
+}
+
+.form button:hover {
+   background-color: #ffff80;
+   
+}
+
+.link {
+   text-decoration: none;
+   color: #000000
+}
+
+.footer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 5vh;
+}
