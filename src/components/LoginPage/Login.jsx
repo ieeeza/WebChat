@@ -4,7 +4,7 @@ import api from "../../services/api";
 import style from "./Login.module.css";
 
 export default function Login() {
-   const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const [text, setText] = useState("");
 	const [email, setEmail] = useState("");
@@ -36,14 +36,17 @@ export default function Login() {
 		const response = await getUsers();
 
 		if (response && response.status === 200) {
-         navigate("/chat", {
-            state: {
-               username: response.data.username
-            }
-         });
-		} else {
-			setText("Erro inesperado!");
-		}
+			navigate("/chat", {
+				state: {
+					username: response.data.username,
+				},
+			});
+		} else if (response && response.status === 403) {
+         setText(response);
+      }
+      else {
+         setText(response)
+      }
 	}
 
 	return (
@@ -67,9 +70,11 @@ export default function Login() {
 					<button type="button" onClick={HandleLogin}>
 						ENTRAR
 					</button>
-               <button type="button">
-                  <Link to="/cadastro" className={style.link}>CADASTRAR</Link>
-               </button>
+					<button type="button">
+						<Link to="/cadastro" className={style.link}>
+							CADASTRAR
+						</Link>
+					</button>
 				</div>
 			</main>
 			<footer className={style.footer}>

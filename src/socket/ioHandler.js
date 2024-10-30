@@ -3,8 +3,9 @@ import { Server } from "socket.io";
 function initializeSocket(server) {
    const io = new Server(server, {
       cors: {
-         origin: ["http://localhost:5000", "http://localhost:5173", "https://df54-187-1-191-194.ngrok-free.app"],
+         origin: "*",
          methods: ["GET", "POST"],
+         credentials: true
       },
    });
 
