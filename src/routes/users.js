@@ -16,19 +16,29 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-   const user = await prisma.Users.findUnique({
+   const email = await prisma.Users.findUnique({
       where: {
          email: req.query.email,
       }
    });
 
-   if (!user) return res.status(404).json({
-      error: "Usuário não encontrado"
+   const phoneNumber = await prisma.Users.findUnique({
+      where: {
+         phoneNumber: req.query.phoneNumber,
+      }
    });
-   res.status(200).json({
-      username: user.username,
-      email: user.email,
-   });
+
+   if (!email || !phoneNumber) {
+      res.status(404).json({
+         error: "Usuário não encontrado"
+      });
+      return;
+   } else {
+      res.status(200).json({
+         username: email,
+         phoneNumber: phoneNumber
+      });
+   }
 });
 
 export default router;

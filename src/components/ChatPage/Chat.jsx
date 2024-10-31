@@ -1,44 +1,96 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useState, useEffect, useRef, useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import style from "./Chat.module.css";
 
 const socket = io("http://localhost:5000");
 
 export default function Chat() {
-	const [username, setUsername] = useState("");
-
+	const navigate = useNavigate();
 	const location = useLocation();
+
+	const [email, setEmail] = useState("");
+	const [username, setUsername] = useState("");
+	const [id, setId] = useState(socket.id);
+	const [inputMessage, setInputMessage] = useState("");
+	const [myMessages, setMyMessages] = useState([]);
+	const [othersMessages, setOthersMessages] = useState([]);
+
+	const allMessages = useMemo(() => {
+		return [...myMessages, ...othersMessages].sort(
+			(a, b) => a.timeStamp - b.timeStamp
+		);
+	}, [myMessages, othersMessages]);
+
+	const endOfMessagesRef = useRef(null);
+
+	useEffect(() => {
+		socket.on("connect", () => setId(socket.id));
+	}, []);
 
 	useEffect(() => {
 		const user = location.state?.username;
 		setUsername(user);
-	}, [location.state?.username]);
 
-	//const [chatUser, setChatUser] = useState("");
-	const [inputMessage, setInputMessage] = useState("");
-	const [messages, setMessages] = useState([]);
+		const userEmail = location.state?.email;
+		setEmail(userEmail);
+
+		if (email === null || email === undefined) {
+			alert("Você precisa esta autenticado para acessar essa pagina!");
+			navigate("/login");
+			return;
+		} else if (username === null || username === undefined) {
+			alert("Você precisa esta autenticado para acessar essa pagina!");
+			navigate("/login");
+			return;
+		}
+	}, [
+		location.state?.username,
+		location.state?.email,
+		email,
+		username,
+		navigate,
+	]);
 
 	useEffect(() => {
 		socket.on("receiveMessage", (message) => {
-			setMessages((prevMessages) => [...prevMessages, message]);
+			if (id == message.id) {
+				setMyMessages((prevMyMessages) => [...prevMyMessages, message]);
+			} else {
+				setOthersMessages((prevOthersMessages) => [
+					...prevOthersMessages,
+					message,
+				]);
+			}
 		});
+
+		socket.on();
 
 		return () => {
 			socket.off("receiveMessage");
 		};
-	}, []);
+	}, [id]);
+
+	useEffect(() => {
+		endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
+	}, [allMessages]);
 
 	function HandleInput() {
 		if (inputMessage.trim() !== "") {
 			const message = {
-				user: username,
+				id: id,
+				timeStamp: Date.now(),
 				text: inputMessage,
+				user: username,
 			};
-			console.log(message);
 			socket.emit("sendMessage", message);
 			setInputMessage("");
 		}
+	}
+
+	function HandleLogoff() {
+		console.log(email);
+		console.log(username);
 	}
 
 	return (
@@ -48,19 +100,38 @@ export default function Chat() {
 					<img src="/src/assets/icon.png" alt="Profile Picture" />
 					<p>{username}</p>
 				</div>
-				<p>Conversando com anonimo</p>
-				<button type="button">Sair do chat</button>
+				<p>Conversa livre</p>
+				<button type="button" onClick={HandleLogoff}>
+					Sair do chat
+				</button>
 			</header>
 
 			<main className={style.main}>
-				<div className={style.chatMessages}>
-					{messages.map((message, index) => (
-						<div key={index} className={style.message}>
-							<img src="/src/assets/icon.png" alt="" />
-							<p>{message.user}:</p>
-							<p>{message.text}</p>
-						</div>
-					))}
+				<div className={style.divChat}>
+					<div className={style.divChat}>
+						{allMessages.map((message, index) => (
+							<div
+								key={index}
+								className={
+									socket.id === message.id
+										? style.chatMessages
+										: style.chatOthersMessages
+								}
+							>
+								<p
+									className={
+										socket.id === message.id
+											? style.chatME
+											: style.chatOTHERS
+									}
+								>
+									{message.user}
+								</p>
+								<p>{message.text}</p>
+							</div>
+						))}
+						<div ref={endOfMessagesRef} />
+					</div>
 				</div>
 
 				<div className={style.chatInput}>

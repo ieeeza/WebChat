@@ -39,14 +39,12 @@ export default function Login() {
 			navigate("/chat", {
 				state: {
 					username: response.data.username,
+					email: response.data.email,
 				},
 			});
-		} else if (response && response.status === 403) {
-         setText(response);
-      }
-      else {
-         setText(response)
-      }
+		} else {
+			setText("Usuário não cadastrado!");
+		}
 	}
 
 	return (
@@ -70,11 +68,9 @@ export default function Login() {
 					<button type="button" onClick={HandleLogin}>
 						ENTRAR
 					</button>
-					<button type="button">
-						<Link to="/cadastro" className={style.link}>
-							CADASTRAR
-						</Link>
-					</button>
+					<Link to="/cadastro" className={style.link}>
+						<button type="button">CADASTRAR</button>
+					</Link>
 				</div>
 			</main>
 			<footer className={style.footer}>

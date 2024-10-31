@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import style from "./Register.module.css";
 
 export default function Register() {
+   const navigate = useNavigate();
+
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [email2, setEmail2] = useState("");
@@ -16,10 +18,11 @@ export default function Register() {
 		try {
 			const response = await api.get(`/Users/`, {
 				params: {
-					email: email,
+               email: email,
+               phoneNumber: phoneNumber,
 				},
 			});
-
+         console.log(response);
 			return response;
 		} catch (error) {
 			if (error.response && error.response.status === 404) {
@@ -47,13 +50,13 @@ export default function Register() {
 			phoneNumber == ""
 		) {
 			setText("Preencha todos os campos acima!");
-         return
+			return;
 		} else if (email != email2) {
 			setText("Campo email divergente!");
-         return
+			return;
 		} else if (password != password2) {
 			setText("Campo senha divergente!");
-         return
+			return;
 		}
 
 		const response = await getUsers();
@@ -62,11 +65,12 @@ export default function Register() {
 			setText("Usuário já cadastrado");
 		} else if (response && response.status === 404) {
 			await postUsers();
-			console.log("rodou");
+			alert("Cadastrado com sucesso!")
+         navigate("/login");
 		} else {
-			setText("Erro inesperado!");
+			setText("Erro inesperado!, caso persista entre em contato comigo!");
 		}
-   }
+	}
 
 	return (
 		<div className={style.body}>
@@ -104,7 +108,7 @@ export default function Register() {
 						onChange={(e) => setPassword2(e.target.value)}
 					/>
 					<input
-						type="number"
+						type="text"
 						placeholder="Número de celular"
 						value={phoneNumber}
 						onChange={(e) => setPhonenumber(e.target.value)}
@@ -113,11 +117,9 @@ export default function Register() {
 					<button type="button" onClick={HandleRegister}>
 						REALIZAR CADASTRO
 					</button>
-					<button type="button">
-						<Link to="/login" className={style.link}>
-							VOLTAR
-						</Link>
-					</button>
+					<Link to="/login" className={style.link}>
+						<button type="button">VOLTAR</button>
+					</Link>
 				</div>
 			</main>
 			<footer className={style.footer}>
