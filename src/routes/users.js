@@ -4,7 +4,7 @@ import prisma from "../services/PrismaClient.js";
 const router = express();
 
 router.post("/", async (req, res) => {
-   await prisma.Users.create({
+   await prisma.users.create({
       data: {
          username: req.body.username,
          email: req.body.email,
@@ -16,28 +16,37 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-   const email = await prisma.Users.findUnique({
-      where: {
-         email: req.query.email,
-      }
-   });
+   const { email, phoneNumber, password } = req.query;
 
-   const phoneNumber = await prisma.Users.findUnique({
-      where: {
-         phoneNumber: req.query.phoneNumber,
+   try {
+      // Valida se ao menos um parâmetro de consulta foi fornecido
+      if (!email && !phoneNumber && !password) {
+         return res.status(400).json({ error: "Informe email, phoneNumber ou password." });
       }
-   });
 
-   if (!email || !phoneNumber) {
-      res.status(404).json({
-         error: "Usuário não encontrado"
+      // Busca o usuário com base no email e outros parâmetros, se presentes
+      const user = await prisma.users.findFirst({
+         where: {
+            email: email || undefined,
+            phoneNumber: phoneNumber || undefined,
+            password: password || undefined
+         }
       });
-      return;
-   } else {
-      res.status(200).json({
-         username: email,
-         phoneNumber: phoneNumber
-      });
+
+      if (user) {
+         const response = {
+            username: user.username,
+            email: user.email,
+            phoneNumber: user.phoneNumber,
+            password: user.password
+         };
+         res.status(200).json(response);
+      } else {
+         res.status(404).send("Usuário não encontrado");
+      }
+   } catch (error) {
+      console.error("Erro ao buscar usuário:", error);
+      res.status(500).json({ error: "Erro interno do servidor." });
    }
 });
 

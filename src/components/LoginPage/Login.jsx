@@ -12,13 +12,12 @@ export default function Login() {
 
 	async function getUsers() {
 		try {
-			const response = await api.get(`/Users/`, {
+			const response = await api.get(`/Users`, {
 				params: {
 					email: email,
 					password: password,
 				},
 			});
-
 			return response;
 		} catch (error) {
 			if (error.response && error.response.status === 404) {
@@ -35,7 +34,7 @@ export default function Login() {
 
 		const response = await getUsers();
 
-		if (response && response.status === 200) {
+		if (response.status === 200) {
 			navigate("/chat", {
 				state: {
 					username: response.data.username,

@@ -4,7 +4,7 @@ import api from "../../services/api";
 import style from "./Register.module.css";
 
 export default function Register() {
-   const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
@@ -16,13 +16,12 @@ export default function Register() {
 
 	async function getUsers() {
 		try {
-			const response = await api.get(`/Users/`, {
+			const response = await api.get(`/Users`, {
 				params: {
-               email: email,
-               phoneNumber: phoneNumber,
+					email: email,
+					phoneNumber: phoneNumber,
 				},
 			});
-         console.log(response);
 			return response;
 		} catch (error) {
 			if (error.response && error.response.status === 404) {
@@ -32,12 +31,22 @@ export default function Register() {
 	}
 
 	async function postUsers() {
-		await api.post("/Users", {
-			username: username,
-			email: email,
-			password: password,
-			phoneNumber: phoneNumber,
-		});
+		try {
+			const response = await api.post("/Users/", {
+				username: username,
+				email: email,
+				password: password,
+				phoneNumber: phoneNumber,
+			});
+			return response;
+		} catch (error) {
+			if (error.response && error.response.status === 404) {
+				setText(
+					"Não foi possível criar usuário. Por favor tente mais tarde!"
+				);
+				return error.response;
+			}
+		}
 	}
 
 	async function HandleRegister() {
@@ -61,12 +70,12 @@ export default function Register() {
 
 		const response = await getUsers();
 
-		if (response && response.status === 200) {
+		if (response.status === 200) {
 			setText("Usuário já cadastrado");
-		} else if (response && response.status === 404) {
+		} else if (response.status === 404) {
 			await postUsers();
-			alert("Cadastrado com sucesso!")
-         navigate("/login");
+			alert("Cadastrado com sucesso!");
+			navigate("/login");
 		} else {
 			setText("Erro inesperado!, caso persista entre em contato comigo!");
 		}
