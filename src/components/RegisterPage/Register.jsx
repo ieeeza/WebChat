@@ -49,6 +49,21 @@ export default function Register() {
         }
     }
 
+    function validateUsername() {
+        if (username.length > 16) {
+            setText("Nome muito grande. Máximo: 16 caracteres.");
+            return false;
+        }
+
+        for (let i = 0; i < username.length; i++) {
+            if (username[i] == " ") {
+                setText("Remova os espaços do campo username!");
+                return false;
+            }
+        }
+        return true;
+    }
+
     function validateEmail() {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -76,7 +91,7 @@ export default function Register() {
         } else if (!/[0-9]/.test(password)) {
             setText("A senha deve ter pelo menos um número.");
             return false;
-        } else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+        } else if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) {
             setText("A senha deve ter pelo menos um caractere especial.");
             return false;
         }
@@ -100,15 +115,17 @@ export default function Register() {
         } else if (password != password2) {
             setText("Campo senha divergente!");
             return false;
-        } else if (username.length() > 16) {
-            setText("Nome muito grande. Máximo: 16 caracteres.");
-            return false;
         }
         return true;
     }
 
     async function HandleRegister() {
-        if (!validateEmail() || !validatePassword() || validateEmptySpace()) {
+        if (
+            !validateEmptySpace() ||
+            !validateUsername() ||
+            !validateEmail() ||
+            !validatePassword()
+        ) {
             return;
         }
 
@@ -128,6 +145,7 @@ export default function Register() {
             }
         } catch (error) {
             setText("Erro de rede! Tente novamente mais tarde.");
+            console.log(error);
         }
     }
 
