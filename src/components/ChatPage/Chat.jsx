@@ -89,8 +89,7 @@ export default function Chat() {
 	}
 
 	function HandleLogoff() {
-		console.log(email);
-		console.log(username);
+		navigate("/login");
 	}
 
 	return (

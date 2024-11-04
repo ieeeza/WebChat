@@ -19,12 +19,10 @@ router.get("/", async (req, res) => {
    const { email, phoneNumber, password } = req.query;
 
    try {
-      // Valida se ao menos um parâmetro de consulta foi fornecido
       if (!email && !phoneNumber && !password) {
          return res.status(400).json({ error: "Informe email, phoneNumber ou password." });
       }
-
-      // Busca o usuário com base no email e outros parâmetros, se presentes
+      
       const user = await prisma.users.findFirst({
          where: {
             email: email || undefined,
