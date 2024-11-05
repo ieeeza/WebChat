@@ -43,13 +43,15 @@ export default function Chat() {
    }, []);
 
    useEffect(() => {
-      const user = location.state?.username;
-      setUsername(user);
+      setUsername(location.state?.username);
+      setEmail(location.state?.email);
 
-      const userEmail = location.state?.email;
-      setEmail(userEmail);
-
-      if (email === null || email === undefined) {
+      if (
+         location.state?.username === null ||
+         location.state?.username === undefined ||
+         location.state?.email === null ||
+         location.state?.email === undefined
+      ) {
          alert("Você precisa estar autenticado para acessar essa pagina!");
          navigate("/login");
          return;
@@ -57,9 +59,7 @@ export default function Chat() {
    }, [
       location.state?.username,
       location.state?.email,
-      email,
-      username,
-      navigate,
+      navigate
    ]);
 
    useEffect(() => {
@@ -107,6 +107,11 @@ export default function Chat() {
    }
 
    function HandleLogoff() {
+      setUsername("");
+      setEmail("");
+      localStorage.removeItem("username");
+      localStorage.removeItem("email");
+      window.history.replaceState(null, null, "/login");
       navigate("/login");
    }
 
@@ -162,6 +167,8 @@ export default function Chat() {
                   onKeyDown={(e) => {
                      if (e.key === "Enter") {
                         HandleInput();
+                        console.log(email);
+                        console.log(username);
                      }
                   }}
                />
