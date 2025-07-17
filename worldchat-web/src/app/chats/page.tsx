@@ -13,7 +13,7 @@ export default function Chats() {
   return (
     <div className={styles.body}>
       <div className={styles.container}>
-        <div className={styles.headerContainer}>
+        <div className={styles.header}>
           <p className={styles.logo}>WORLD CHAT</p>
           <button
             title="sair"
@@ -26,16 +26,22 @@ export default function Chats() {
         </div>
         <main className={styles.main}>
           <div className={styles.sideLeftBar}>
-            <p>Top Senders</p>
+            <div className={styles.topSendersContainer}>
+              <p>Top Senders</p>
+              <p>Most active users in the chat</p>
+            </div>
             <div className={styles.topSenders}>
-              <p>1. User1</p>
-              <p>2. User2</p>
-              <p>3. User3</p>
+              <div className={styles.topSendersListProfile}>
+                <p>User</p>
+                <p>-</p>
+                <p>Total Messages Sent</p>
+              </div>
             </div>
           </div>
           <div className={styles.middleBar}>
             <p>Chat Messages</p>
             <div className={styles.chatMessages}>
+              
               <p>User1: Hello!</p>
               <p>User2: Hi there!</p>
             </div>
@@ -49,13 +55,13 @@ export default function Chats() {
                 Enviar
               </button>
             </div>
-            <div className={styles.rightBar}>
-              <p>Online Users</p>
-              <div className={styles.onlineUsers}>
-                <p>User1</p>
-                <p>User2</p>
-                <p>User3</p>
-              </div>
+          </div>
+          <div className={styles.rightBar}>
+            <p>Online Users</p>
+            <div className={styles.onlineUsers}>
+              <p>User1</p>
+              <p>User2</p>
+              <p>User3</p>
             </div>
           </div>
         </main>

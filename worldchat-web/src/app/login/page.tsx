@@ -6,6 +6,10 @@ import styles from "./page.module.css";
 export default function Login() {
   const router = useRouter();
 
+  function handleLogin() {
+    router.push("/chats");
+  }
+
   function handleVoltar() {
     router.push("/");
   }
@@ -31,7 +35,12 @@ export default function Login() {
             required
           />
           <div className={styles.buttons}>
-            <button type="button" className={styles.button}>
+            <button
+              type="button"
+              title="entrar"
+              onClick={handleLogin}
+              className={styles.button}
+            >
               <p>Entrar</p>
             </button>
             <button

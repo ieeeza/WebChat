@@ -49,6 +49,13 @@
   cursor: pointer;
   margin-top: 20px;
   text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover {
+  background-color: #555;
+  transform: scale(1.05);
+  transition: background-color ease-in-out 0.2s, transform ease-in-out 0.2s;
 }
 
 .footer {
