@@ -3,6 +3,7 @@
   width: 100vw;
   background-color: #000;
   color: #fff;
+  font-family: "Sansation", sans-serif;
 }
 
 .container {
@@ -65,7 +66,7 @@
 }
 
 .topSendersContainer p {
-  font-weight: bold ;
+  font-weight: bold;
 }
 
 .topSendersListProfile {
@@ -80,6 +81,74 @@
   background-color: #2a2a2a;
   padding: 20px;
   overflow-y: auto;
+}
+
+.middleBarTittle {
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.chatMessages {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  overflow-y: auto;
+  border-bottom: 1px solid #fff;
+}
+
+.chatMessagesReceived {
+  color: #00ff00;
+  margin: 5px 0;
+}
+
+.chatMessagesSender {
+  display: flex;
+  justify-content: flex-end;
+  color: #00bfff;
+}
+
+.textInputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.inputText {
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+.inputText:hover {
+  background-color: #4a4a4a;
+  border: none;
+  outline: none;
+}
+
+.inputText:focus {
+  background-color: #4a4a4a;
+  border: none;
+  outline: none;
+}
+
+.sendButton {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 15%;
+}
+
+.sendButton:hover {
+  background-color: #45a049;
 }
 
 .rightBar {

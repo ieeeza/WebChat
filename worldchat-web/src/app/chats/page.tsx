@@ -2,12 +2,40 @@
 
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css";
+import { useState } from "react";
+
+type User = string;
+
+type Message = {
+  id: string;
+  sender: string;
+  text: string;
+};
 
 export default function Chats() {
   const router = useRouter();
 
+  const [user, setUser] = useState<User>("")
+  const [inputText, setInputText] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+
   function handleSair() {
     router.push("/login");
+  }
+
+  function handleSendMessage() {
+    if (inputText.trim() === "") {
+      return;
+    }
+
+    setUser("César");
+
+    const newMessage: Message = {
+      id: String(messages.length + 1),
+      sender: user,
+      text: inputText,
+    };
+    setMessages([...messages, newMessage]);
   }
 
   return (
@@ -39,20 +67,31 @@ export default function Chats() {
             </div>
           </div>
           <div className={styles.middleBar}>
-            <p>Chat Messages</p>
+            <p className={styles.middleBarTittle}>Chat Messages</p>
             <div className={styles.chatMessages}>
-              
-              <p>User1: Hello!</p>
-              <p>User2: Hi there!</p>
+              {messages.map((message) => (
+                <p key={message.id} className={styles.chatMessagesReceived}>
+                  {message.sender}: {message.text}
+                </p>
+              ))}
+
+              <p className={styles.chatMessagesReceived}>User1: Hello!</p>
+              <p className={styles.chatMessagesSender}>Hi there! :User2</p>
             </div>
-            <div className={styles.text}>
+            <div className={styles.textInputContainer}>
               <input
                 type="text"
                 placeholder="Digite sua mensagem"
                 className={styles.inputText}
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
               />
-              <button type="submit" className={styles.sendButton}>
-                Enviar
+              <button
+                className={styles.sendButton}
+                type="button"
+                onClick={handleSendMessage}
+              >
+                ENVIAR
               </button>
             </div>
           </div>
