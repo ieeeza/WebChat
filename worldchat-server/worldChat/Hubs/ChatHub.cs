@@ -15,6 +15,9 @@ namespace worldChat.Hubs
         public override async Task OnConnectedAsync()
         {
             var username = Context.User?.Identity?.Name ?? "Anonymous";
+            var connectionId = Context.ConnectionId;
+
+            await Clients.Caller.SendAsync("ReceiveConnectionId", connectionId);
             await Clients.All.SendAsync("UserConnected", username);
             await base.OnConnectedAsync();
         }

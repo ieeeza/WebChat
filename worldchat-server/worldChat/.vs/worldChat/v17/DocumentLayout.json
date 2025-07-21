@@ -1,66 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\",
+  "WorkspaceRootPath": "D:\\Projetos\\WebChat\\worldchat-server\\worldChat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\authentication\\jwtauthentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:authentication\\jwtauthentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|d:\\projetos\\webchat\\worldchat-server\\worldchat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\models\\usuariomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:models\\usuariomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\service\\tokenservices\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:service\\tokenservices\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\service\\usuarioservice\\iusuariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:service\\usuarioservice\\iusuariointerface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\service\\usuarioservice\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:service\\usuarioservice\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|d:\\projetos\\webchat\\worldchat-server\\worldchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\authentication\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:authentication\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\dtos\\usuariologinrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:dtos\\usuariologinrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\datacontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:datacontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\worldchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|d:\\projetos\\webchat\\worldchat-server\\worldchat\\worldchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:worldchat.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\models\\serviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:models\\serviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|c:\\users\\ieza\\desktop\\projetos\\webchat\\worldchat-server\\worldchat\\migrations\\20250721153228_usuariotable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71944F1E-B554-4C73-B2F8-7BD56F887797}|worldChat.csproj|solutionrelative:migrations\\20250721153228_usuariotable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,205 +22,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 0,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "D:\\Projetos\\WebChat\\worldchat-server\\worldChat\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "Hubs\\ChatHub.cs",
+              "ToolTip": "D:\\Projetos\\WebChat\\worldchat-server\\worldChat\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "Hubs\\ChatHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T21:44:30.203Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Service\\TokenServices\\TokenService.cs",
-              "RelativeDocumentMoniker": "Service\\TokenServices\\TokenService.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Service\\TokenServices\\TokenService.cs",
-              "RelativeToolTip": "Service\\TokenServices\\TokenService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA1AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projetos\\WebChat\\worldchat-server\\worldChat\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Projetos\\WebChat\\worldchat-server\\worldChat\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T17:34:55.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UsuarioLoginRequest.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Dtos\\UsuarioLoginRequest.cs",
-              "RelativeDocumentMoniker": "Dtos\\UsuarioLoginRequest.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Dtos\\UsuarioLoginRequest.cs",
-              "RelativeToolTip": "Dtos\\UsuarioLoginRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T15:08:28.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUsuarioInterface.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Service\\UsuarioService\\IUsuarioInterface.cs",
-              "RelativeDocumentMoniker": "Service\\UsuarioService\\IUsuarioInterface.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Service\\UsuarioService\\IUsuarioInterface.cs",
-              "RelativeToolTip": "Service\\UsuarioService\\IUsuarioInterface.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:45:51.612Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Service\\UsuarioService\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "Service\\UsuarioService\\UsuarioService.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Service\\UsuarioService\\UsuarioService.cs",
-              "RelativeToolTip": "Service\\UsuarioService\\UsuarioService.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwEcAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:45:19.574Z",
+              "WhenOpened": "2025-07-21T21:22:49.612Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UsuarioModel.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Models\\UsuarioModel.cs",
-              "RelativeDocumentMoniker": "Models\\UsuarioModel.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Models\\UsuarioModel.cs",
-              "RelativeToolTip": "Models\\UsuarioModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T11:32:59.48Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAIwDoAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:08:02.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\DataContext\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "DataContext\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\DataContext\\ApplicationDbContext.cs",
-              "RelativeToolTip": "DataContext\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T13:47:57.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-21T14:12:45.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChatHub.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Hubs\\ChatHub.cs",
-              "RelativeDocumentMoniker": "Hubs\\ChatHub.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Hubs\\ChatHub.cs",
-              "RelativeToolTip": "Hubs\\ChatHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:29:05.291Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "JwtSettings.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Authentication\\JwtSettings.cs",
-              "RelativeDocumentMoniker": "Authentication\\JwtSettings.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Authentication\\JwtSettings.cs",
-              "RelativeToolTip": "Authentication\\JwtSettings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:25:23.115Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "JwtAuthentication.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Authentication\\JwtAuthentication.cs",
-              "RelativeDocumentMoniker": "Authentication\\JwtAuthentication.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Authentication\\JwtAuthentication.cs",
-              "RelativeToolTip": "Authentication\\JwtAuthentication.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAowCEAAABoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T13:55:19.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UsuariosController.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T15:34:19.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ServiceResponse.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Models\\ServiceResponse.cs",
-              "RelativeDocumentMoniker": "Models\\ServiceResponse.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Models\\ServiceResponse.cs",
-              "RelativeToolTip": "Models\\ServiceResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T14:46:56.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "20250721153228_usuarioTable.cs",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Migrations\\20250721153228_usuarioTable.cs",
-              "RelativeDocumentMoniker": "Migrations\\20250721153228_usuarioTable.cs",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\Migrations\\20250721153228_usuarioTable.cs",
-              "RelativeToolTip": "Migrations\\20250721153228_usuarioTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T15:32:28.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "worldChat.csproj",
-              "DocumentMoniker": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\worldChat.csproj",
+              "DocumentMoniker": "D:\\Projetos\\WebChat\\worldchat-server\\worldChat\\worldChat.csproj",
               "RelativeDocumentMoniker": "worldChat.csproj",
-              "ToolTip": "C:\\Users\\ieza\\Desktop\\Projetos\\WebChat\\worldchat-server\\worldChat\\worldChat.csproj",
+              "ToolTip": "D:\\Projetos\\WebChat\\worldchat-server\\worldChat\\worldChat.csproj",
               "RelativeToolTip": "worldChat.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAkwBoAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-21T13:47:15.016Z"
+              "WhenOpened": "2025-07-21T21:15:52.116Z",
+              "EditorCaption": ""
             }
           ]
         }

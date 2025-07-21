@@ -22,7 +22,7 @@ export default function Chats() {
   const [connection, setConnection] = useState<HubConnection | null>(null);
   const [inputText, setInputText] = useState<string>("");
   const [chatLog, setChatLog] = useState<ChatMessage[]>([]);
-  const [usuariosConnectados, setUsuariosConectados] = useState<Usuario[]>([]);
+  const [usuariosConnectados, setUsuariosConnectados] = useState<Usuario[]>([]);
 
   function handleSair() {
     router.push("/login");
@@ -45,11 +45,9 @@ export default function Chats() {
     newConnection
       .start()
       .then(() => {
-        console.log("Conectado ao chat!");
         setConnection(newConnection);
       })
       .catch((err) => console.error("Erro na conexão:", err));
-
     return () => {
       newConnection.stop();
     };
@@ -98,9 +96,9 @@ export default function Chats() {
           <div className={styles.middleBar}>
             <p className={styles.middleBarTittle}>Chat Messages</p>
             <div className={styles.chatMessages}>
-              {chatLog.map((msg, index) => (
+              {chatLog.map((message, index) => (
                 <p key={index} className={styles.chatMessagesReceived}>
-                  {msg.sender}: {msg.text}
+                  {message.sender}: {message.text}
                 </p>
               ))}
             </div>
