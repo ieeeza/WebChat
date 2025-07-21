@@ -1,42 +1,70 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import createSignalRConnection from "@/lib/SignalrConnection";
 import styles from "./page.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { HubConnection } from "@microsoft/signalr";
 
-type User = string;
-
-type Message = {
-  id: string;
+type ChatMessage = {
   sender: string;
   text: string;
+};
+
+type Usuario = {
+  id: string;
+  nome: string;
 };
 
 export default function Chats() {
   const router = useRouter();
 
-  const [user, setUser] = useState<User>("")
-  const [inputText, setInputText] = useState("");
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [connection, setConnection] = useState<HubConnection | null>(null);
+  const [inputText, setInputText] = useState<string>("");
+  const [chatLog, setChatLog] = useState<ChatMessage[]>([]);
+  const [usuariosConnectados, setUsuariosConectados] = useState<Usuario[]>([]);
 
   function handleSair() {
     router.push("/login");
   }
 
-  function handleSendMessage() {
-    if (inputText.trim() === "") {
+  useEffect(() => {
+    const jwtToken = localStorage.getItem("token");
+    if (!jwtToken) {
+      router.push("/login");
       return;
     }
 
-    setUser("César");
+    const newConnection = createSignalRConnection(
+      jwtToken,
+      (user: string, message: string) => {
+        setChatLog((prev) => [...prev, { sender: user, text: message }]);
+      }
+    );
 
-    const newMessage: Message = {
-      id: String(messages.length + 1),
-      sender: user,
-      text: inputText,
+    newConnection
+      .start()
+      .then(() => {
+        console.log("Conectado ao chat!");
+        setConnection(newConnection);
+      })
+      .catch((err) => console.error("Erro na conexão:", err));
+
+    return () => {
+      newConnection.stop();
     };
-    setMessages([...messages, newMessage]);
-  }
+  }, [router]);
+
+  const handleSendMessage = async () => {
+    if (connection && inputText.trim() !== "") {
+      try {
+        await connection.invoke("SendMessage", inputText);
+        setInputText("");
+      } catch (err) {
+        console.error("Erro ao enviar mensagem:", err);
+      }
+    }
+  };
 
   return (
     <div className={styles.body}>
@@ -64,19 +92,17 @@ export default function Chats() {
                 <p>-</p>
                 <p>Total Messages Sent</p>
               </div>
+              {/* Aqui você pode mapear os top senders */}
             </div>
           </div>
           <div className={styles.middleBar}>
             <p className={styles.middleBarTittle}>Chat Messages</p>
             <div className={styles.chatMessages}>
-              {messages.map((message) => (
-                <p key={message.id} className={styles.chatMessagesReceived}>
-                  {message.sender}: {message.text}
+              {chatLog.map((msg, index) => (
+                <p key={index} className={styles.chatMessagesReceived}>
+                  {msg.sender}: {msg.text}
                 </p>
               ))}
-
-              <p className={styles.chatMessagesReceived}>User1: Hello!</p>
-              <p className={styles.chatMessagesSender}>Hi there! :User2</p>
             </div>
             <div className={styles.textInputContainer}>
               <input
@@ -96,11 +122,13 @@ export default function Chats() {
             </div>
           </div>
           <div className={styles.rightBar}>
-            <p>Online Users</p>
+            <p className={styles.rightBarTitle}>Online Users</p>
             <div className={styles.onlineUsers}>
-              <p>User1</p>
-              <p>User2</p>
-              <p>User3</p>
+              {usuariosConnectados.map((usuario) => (
+                <p key={usuario.id} className={styles.onlineUser}>
+                  {usuario.nome}
+                </p>
+              ))}
             </div>
           </div>
         </main>

@@ -157,3 +157,18 @@
   padding: 20px;
   overflow-y: auto;
 }
+
+.rightBarTitle {
+  font-weight: bold;
+}
+
+.onlineUsers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.onlineUser {
+  color: #00bfff;
+  cursor: pointer;
+}

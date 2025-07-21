@@ -1,13 +1,43 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import endpoints from "@/api/apiRoutes";
 import styles from "./page.module.css";
 
 export default function Login() {
   const router = useRouter();
 
-  function handleLogin() {
-    router.push("/chats");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+
+  async function fetchLogin() {
+    return await fetch(endpoints.login, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    });
+  }
+
+  async function handleLogin() {
+    const response = await fetchLogin();
+    const jwtToken = await response.json();
+    
+    console.log(jwtToken);
+
+    localStorage.setItem("token", jwtToken.dados.password);
+
+    if (!response.ok) {
+      alert("Login failed. Please check your credentials.");
+    } else {
+      router.push("/chats");
+    }
   }
 
   function handleVoltar() {
@@ -25,12 +55,14 @@ export default function Login() {
           <input
             type="text"
             placeholder="Email"
+            onChange={(e) => setUsername(e.target.value)}
             className={styles.input}
             required
           />
           <input
             type="password"
             placeholder="Senha"
+            onChange={(e) => setPassword(e.target.value)}
             className={styles.input}
             required
           />
