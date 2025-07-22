@@ -5,38 +5,96 @@ import { useRouter } from "next/navigation";
 import endpoints from "@/api/apiRoutes";
 import styles from "./page.module.css";
 
+type serverResponse = {
+  dados: string;
+  mensagem: string;
+  sucesso: boolean;
+  horaResposta: string;
+};
+
 export default function Login() {
   const router = useRouter();
 
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
+  const [style, setStyle] = useState({
+    isLoading: false,
+    errorUsername: false,
+    errorPassword: false,
+  });
 
   async function fetchLogin() {
-    return await fetch(endpoints.login, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-    });
+    try {
+      return await fetch(endpoints.login, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      setError("Erro ao conectar ao servidor. Tente novamente mais tarde.");
+      setStyle({ ...style, isLoading: false });
+      return { status: 500, json: () => ({ mensagem: "Erro de conexão" }) };
+    }
+  }
+
+  async function handleInputs() {
+    if (!username || username.trim() === "") {
+      setError("Por favor, preencha o campo nome de usuário.");
+      setStyle({ ...style, errorUsername: true });
+      return;
+    } else if (!password || password.trim() === "") {
+      setError("Por favor, preencha o campo senha.");
+      setStyle({ ...style, errorPassword: true });
+      return;
+    }
+    setError("");
+  }
+
+  async function validateStatusResponse(jwtToken: serverResponse) {
+    if (jwtToken.mensagem == "Usuário não encontrado.") {
+      setStyle({
+        ...style,
+        errorUsername: true,
+        errorPassword: true,
+        isLoading: false,
+      });
+      setUsername("");
+      setPassword("");
+      setError("Usuário não encontrado. Verifique suas credenciais.");
+      return false;
+    }
+    return true;
   }
 
   async function handleLogin() {
+    setStyle({ ...style, isLoading: true });
+
+    await handleInputs();
+
     const response = await fetchLogin();
-    const jwtToken = await response.json();
-    
-    console.log(jwtToken);
 
-    localStorage.setItem("token", jwtToken.dados.password);
+    try {
+      const jwtToken = await response.json();
+      localStorage.setItem("token", jwtToken.dados.password);
 
-    if (!response.ok) {
-      alert("Login failed. Please check your credentials.");
-    } else {
+      const isValid = await validateStatusResponse(jwtToken);
+      if (!isValid) return;
+
+      setStyle({ ...style, isLoading: false });
+      setError("");
       router.push("/chats");
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      setStyle({ ...style, isLoading: false });
+      setError(`Tente novamente, caso persista entre em contato.`);
     }
   }
 
@@ -54,29 +112,33 @@ export default function Login() {
         <div className={styles.form}>
           <input
             type="text"
-            placeholder="Email"
+            placeholder="Nome de usuário"
             onChange={(e) => setUsername(e.target.value)}
-            className={styles.input}
+            onClick={() => setStyle({ ...style, errorUsername: false })}
+            className={style.errorUsername ? styles.inputError : styles.input}
             required
           />
           <input
             type="password"
             placeholder="Senha"
             onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
+            onClick={() => setStyle({ ...style, errorPassword: false })}
+            className={style.errorPassword ? styles.inputError : styles.input}
             required
           />
           <div className={styles.buttons}>
             <button
               type="button"
-              title="entrar"
               onClick={handleLogin}
               className={styles.button}
             >
-              <p>Entrar</p>
+              {style.isLoading ? (
+                <p className={styles.loader}></p>
+              ) : (
+                <p>Entrar</p>
+              )}
             </button>
             <button
-              title="voltar"
               type="button"
               onClick={handleVoltar}
               className={styles.button}
@@ -84,6 +146,7 @@ export default function Login() {
               <p>Voltar</p>
             </button>
           </div>
+          {error ? <p className={styles.error}>{error}</p> : null}
         </div>
       </div>
     </div>

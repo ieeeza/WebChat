@@ -29,14 +29,14 @@ export default function Chats() {
   }
 
   useEffect(() => {
-    const jwtToken = localStorage.getItem("token");
-    if (!jwtToken) {
+    const token = localStorage.getItem("token");
+    if (!token) {
       router.push("/login");
       return;
     }
 
     const newConnection = createSignalRConnection(
-      jwtToken,
+      token,
       (user: string, message: string) => {
         setChatLog((prev) => [...prev, { sender: user, text: message }]);
       }
@@ -47,7 +47,11 @@ export default function Chats() {
       .then(() => {
         setConnection(newConnection);
       })
-      .catch((err) => console.error("Erro na conexão:", err));
+      .catch((err) => { 
+        console.error("Erro na conexão:", err);
+        alert("Erro ao conectar ao servidor. Verifique sua conexão, ou tente mais tarde.");
+        router.push("/login");
+      });
     return () => {
       newConnection.stop();
     };
@@ -59,6 +63,7 @@ export default function Chats() {
         await connection.invoke("SendMessage", inputText);
         setInputText("");
       } catch (err) {
+        alert("Erro ao enviar mensagem. Tente novamente.");
         console.error("Erro ao enviar mensagem:", err);
       }
     }
